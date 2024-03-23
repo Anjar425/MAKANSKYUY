@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html class="scroll-smooth no-scrollbar">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>MAKAN SKUY</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <style>
+      @layer utilities {
+        .no-scrollbar::-webkit-scrollbar {
+          display: none;
+        }
+        .no-scrollbar {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+        }
+      }
+      .remove-arrow::-webkit-inner-spin-button,
+      .remove-arrow::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="min-h-screen bg-gradient-to-br from-gray-900 to-black flex flex-col justify-center text-white">
+      <!-- NAV BAR -->
+      <nav id="navbar" class="flex-no-wrap fixed w-full items-center py-5 px-12 flex flex-row justify-between m-0 bg-transparent top-0 z-30 font-bold">
+        <div>
+          <p>MAKAN SKUY</p>
+        </div>
+        <div class="flex flex-row gap-8">
+          <a href="#home">HOME</a>
+          <a href="#makanan">MAKANAN</a>
+          <a href="#minuman">MINUMAN</a>
+          <button onclick="showModal()" class="fa fa-shopping-cart relative" style="font-size: 20px">
+            <div id="notif" class="absolute bg-red-600 rounded-full text-[6px] text-center w-3 h-3 z-40 top-0 left-3 hidden"></div>
+          </button>
+        </div>
+      </nav>
+
+      <!-- HOME PAGE -->
+      <section id="home" class="flex flex-col min-h-screen justify-center">
+        <main class="flex flex-col gap-6 justify-center items-center text-center h-100%">
+          <h1 class="text-7xl font-bold">MAKAN SKUY</h1>
+          <p class="text-xl text-gray-400">Menyediakann segala jenis makanan dan minuman yang sangat sedap dan menyegarkan</p>
+          <a href="#makanan" class="bg-green-700 active:ring-2 active:ring-green-400 text-gray-200 py-2 px-4 rounded-md text-md font-bold">GASIN BELI</a>
+        </main>
+      </section>
+
+      <!-- SECTION FOOD -->
+      <section id="makanan" class="flex flex-col min-h-screen justify-center items-center gap-6">
+        <h1 class="font-bold text-6xl">MAKANAN</h1>
+        <main id="menu-makanan" class="flex flex-row flex-nowrap gap-10 w-full p-10 grow-1 overflow-y-auto no-scrollbar horizontal-scroll"></main>
+      </section>
+
+      <!-- SECTION BEVERAGES -->
+      <section id="minuman" class="flex flex-col min-h-screen justify-center items-center gap-6">
+        <h1 class="font-bold text-6xl">MINUMAN</h1>
+        <main id="menu-minuman" class="flex flex-row flex-nowrap gap-10 w-full p-10 grow-1 overflow-y-auto no-scrollbar horizontal-scroll"></main>
+      </section>
+
+      <!-- SECTION CART MODAL -->
+      <section id="modal" class="hidden fixed inset-0 bg-gray-600 bg-opacity-60 justify-center z-50">
+        <div class="h-96 min-w-96 w-1/2 bg-slate-800 flex flex-col items-center rounded-lg mt-5 py-4 px-10 gap-4">
+          <h1 class="font-bold text-2xl">KERANJANG BELANJA</h1>
+          <div id="cart" class="flex flex-col w-full bg-gray-950 border-2 border-gray-600 p-2 h-3/5 overflow-x-auto no-scrollbar rounded-lg px-4"></div>
+          <div class="flex flex-row w-full gap-6 items-center justify-center">
+            <p class="font-bold">INFOKAN LOKASI :</p>
+            <input class="bg-white flex-grow text-black col-span-2 py-2 rounded-md text-md font-semibold text-center remove-arrow" type="text" placeholder="lokasi mu ndi lur" />
+          </div>
+          <div class="grid grid-cols-2 w-full gap-4 items-center justify-center">
+            <button onclick="closeModal()" class="bg-red-700 active:ring-2 h-full active:ring-red-400 text-gray-200 py-2 px-4 rounded-md text-md font-bold">CANCEL</button>
+            <button id="total" onclick="" class="bg-green-700 active:ring-2  active:ring-green-400 py-2 px-4 rounded-md"></button>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script src="index.js"></script>
+  </body>
+</html>
